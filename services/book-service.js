@@ -4,7 +4,6 @@ import { storageService } from './storage-service.js';
 export const bookService = {
     query,
     removeBook,
-    queryFilters
 
 }
 const KEY = 'books';
@@ -15,20 +14,9 @@ let gFilers = [];
 
 function query() {
     if (gBooks.length) return Promise.resolve(gBooks);
-    queryFilters()
     return Promise.resolve(_loadBooks());
 }
 
-
-function queryFilters() {
-    gBooks.map(book => {
-        book.categories.forEach(category => {
-            if (gFilers.includes(category)) return
-            gFilers.push(category);
-        });
-    })
-    return Promise.resolve(gFilers);
-}
 
 function _loadBooks() {
     return axios.get('./services/books.json').then(res => {
