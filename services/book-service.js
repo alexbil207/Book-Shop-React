@@ -8,7 +8,7 @@ export const bookService = {
 
 }
 const KEY = 'books';
-var gBooks = storageService.loadFromStorage(KEY) || [];
+var gBooks = [];
 let gFilers = [];
 
 
