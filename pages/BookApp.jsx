@@ -7,10 +7,7 @@ export class BookApp extends React.Component {
     state = {
         books: [],
         selectedBook: null,
-        filterBy: {
-            value: '',
-            price: '',
-        }
+        filterBy: null,
     }
 
     componentDidMount() {
@@ -18,26 +15,28 @@ export class BookApp extends React.Component {
     }
 
     loadBooks() {
-        bookService.query().then(books => {
+        bookService.query(this.state.filterBy).then(books => {
             this.setState({ books })
         })
     }
+
     setSelectedBook = (book) => {
         this.setState({ selectedBook: book })
     }
-    setFilterBy = ({ value, price }) => {
+
+    setFilterBy = (filterBy) => {
         this.setState({
-            filterBy: {
-                value,
-                price,
-            }
-        })
-
+            filterBy,
+        }, this.loadBooks)
     }
-
     render() {
         const { books, selectedBook } = this.state;
-        if (!books) return <h1>Loading......</h1>
+        if (!books) return (
+            <React.Fragment>
+                <BookFilter setFilterBy={this.setFilterBy} />
+                <h1>Loading......</h1>
+            </React.Fragment>
+        )
         return (
             <React.Fragment>
                 {!selectedBook && <BookFilter setFilterBy={this.setFilterBy} />}
