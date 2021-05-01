@@ -4,19 +4,15 @@ import { storageService } from './storage-service.js';
 export const bookService = {
     query,
     removeBook,
-
 }
 const KEY = 'books';
 var gBooks = [];
-let gFilers = [];
-
 
 
 function query() {
     if (gBooks.length) return Promise.resolve(gBooks);
     return Promise.resolve(_loadBooks());
 }
-
 
 function _loadBooks() {
     return axios.get('./services/books.json').then(res => {

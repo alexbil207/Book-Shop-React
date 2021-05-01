@@ -79,7 +79,6 @@ select {
 }
 
 .book-detail {
-    height: 400px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -88,6 +87,8 @@ select {
 }
 
 .details {
+    width: 90%;
+    height: 400px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -115,6 +116,9 @@ select {
     img:hover {
         filter: blur(0);
         opacity: 1;
+    }
+    .details {
+        width: 500px;
     }
 }
 
