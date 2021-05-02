@@ -34,7 +34,7 @@ header a, .toggleMenu {
     bottom: 2px;
 }
 
-.nav-btns:last-child, .toggleMenu {
+header a:last-child {
     border-right: 1px solid #000;
 }
 

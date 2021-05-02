@@ -18,7 +18,6 @@ input {
 
 header {
     border-bottom: 3px solid #7ea04d;
-    margin-bottom: 10px;
 }
 
 footer, header {
@@ -28,6 +27,8 @@ footer, header {
 
 footer {
     border-top: 3px solid #7ea04d;
+    position: relative;
+    bottom: 0;
 }
 
 nav {

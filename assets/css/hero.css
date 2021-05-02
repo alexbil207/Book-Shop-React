@@ -1,0 +1,34 @@
+.hero {
+    background-image: url('../img/hero.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.hero h2 {
+    font-family: 'Girassol', cursive;
+    text-align: center;
+    color: aliceblue;
+    font-size: 2.6rem;
+    text-shadow: -1px 1px 5px #000;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.hero a {
+    background-color: #335d2d;
+    border: 1px solid #000;
+    font-family: 'Girassol', cursive;
+    color: aliceblue;
+    font-size: 2rem;
+    border-radius: 20px;
+    padding: 5px 100px;
+}
+
+.hero a:active {
+    position: relative;
+    top: 3px;
+}
