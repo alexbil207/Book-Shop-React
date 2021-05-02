@@ -3,26 +3,25 @@ const { NavLink } = ReactRouterDOM;
 
 export class HeaderApp extends React.Component {
     state = {
-        navBtns: 'nav-btns',
+        isShown: false
     }
 
-    btnClick = () => {
-        if (this.state.navBtns.includes('show')) this.setState({ navBtns: 'nav-btns' });
-        else this.setState({ navBtns: 'nav-btns show' });
+    onToggle = () => {
+        this.setState(prevState => ({ ...prevState, isShown: !prevState.isShown }))
     }
 
     render() {
-        const { navBtns } = this.state;
+        const { isShown } = this.state;
         return (
             <nav className="app header">
                 <div className="logo">
                     <h1>Book/Store</h1>
                 </div>
-                <div className={navBtns}>
+                <div className={`nav-btns ${isShown && 'show'}`}>
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/books">Books</NavLink>
                 </div>
-                <button className="toggleMenu hidden" onClick={this.btnClick}>☰</button>
+                <button className="toggleMenu hidden" onClick={this.onToggle}>☰</button>
             </nav>
         )
     }

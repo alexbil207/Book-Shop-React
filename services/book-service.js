@@ -4,6 +4,7 @@ import { storageService } from './storage-service.js';
 export const bookService = {
     query,
     removeBook,
+    getBookById,
 }
 const KEY = 'books';
 var gBooks = [];
@@ -25,6 +26,7 @@ function query(filterBy) {
     return Promise.resolve(_loadBooks());
 
 }
+
 function getfilterBy(filterBy) {
     if (filterBy.price) {
         switch (filterBy.price) {
@@ -43,8 +45,6 @@ function getfilterBy(filterBy) {
     return gBooks.filter(book => book.title.includes(filterBy.bookName));
 }
 
-
-
 function _loadBooks() {
     return axios.get('./services/books.json').then(res => {
         gBooks = res.data.slice();
@@ -53,9 +53,10 @@ function _loadBooks() {
     })
 }
 
-function _getBook(bookId) {
-    var books = getBooks();
-    return books.find((book) => { return book.id === bookId })
+function getBookById(bookId) {
+    const books = storageService.loadFromStorage(KEY);
+    return Promise.resolve(books.find(book => book.id === bookId)
+    );
 }
 
 function removeBook(bookId) {

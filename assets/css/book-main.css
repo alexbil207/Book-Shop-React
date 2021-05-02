@@ -58,9 +58,10 @@
     align-items: center;
 }
 
-.details button {
+.details a {
     width: 100px;
-    height: 25px;
+    border: 1px solid #1b1b1b;
+    padding: 3px;
     margin-bottom: 20px;
 }
 
@@ -84,7 +85,7 @@
     .details {
         width: 500px;
     }
-    .details button {
+    .details a {
         margin-bottom: 0;
     }
 }
