@@ -1,0 +1,15 @@
+/*### Filters ###*/
+
+.filters, input {
+    font-size: 1.3rem;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filters>* {
+    margin-bottom: 20px;
+}

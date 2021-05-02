@@ -1,0 +1,75 @@
+/*### Header ###*/
+
+.logo {
+    flex: 2;
+}
+
+header a, .toggleMenu {
+    height: 100%;
+    border-left: 1px solid #000;
+}
+
+.nav-btns {
+    height: 80px;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.nav-btns>*, .nav-btns {
+    flex: 1;
+}
+
+.nav-btns>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btns>*:hover {
+    box-shadow: inset 3px 1px 5px #000;
+}
+
+.nav-btns>*:active, .toggleMenu:active {
+    position: relative;
+    bottom: 2px;
+}
+
+.nav-btns:last-child, .toggleMenu {
+    border-right: 1px solid #000;
+}
+
+.toggleMenu {
+    display: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    height: 80px;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .toggleMenu {
+        display: flex;
+    }
+    .nav-btns {
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 5.2rem;
+        height: 30vh;
+        width: 40%;
+        border: 1px solid #ebebeb;
+        transform: translateY(-200%);
+        transition: transform .3s;
+        z-index: 1;
+    }
+    .nav-btns>*:not(:last-child) {
+        border-bottom: 1px solid #000;
+    }
+    .nav-btns>* {
+        background-color: #335d2d;
+        width: 100%;
+    }
+}

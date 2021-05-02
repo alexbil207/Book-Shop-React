@@ -1,0 +1,47 @@
+/*### Base ###*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+
+header {
+    border-bottom: 3px solid #7ea04d;
+    margin-bottom: 10px;
+}
+
+footer, header {
+    background-color: #335d2d;
+    color: #fff;
+}
+
+footer {
+    border-top: 3px solid #7ea04d;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+select {
+    width: 200px;
+    height: 25px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
