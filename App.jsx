@@ -15,7 +15,6 @@ export function App() {
             </header>
             <main className="app">
                 <Switch>
-                    <Route component={Home} path='/about' />
                     <Route component={BookApp} path='/books' />
                     <Route component={Home} path='/' />
                 </Switch>

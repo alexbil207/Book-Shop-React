@@ -21,7 +21,6 @@ export class HeaderApp extends React.Component {
                 <div className={navBtns}>
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/books">Books</NavLink>
-                    <NavLink to="/about">About</NavLink>
                 </div>
                 <button className="toggleMenu hidden" onClick={this.btnClick}>☰</button>
             </nav>
