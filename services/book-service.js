@@ -29,7 +29,7 @@ function getfilterBy(filterBy) {
     if (filterBy.price) {
         switch (filterBy.price) {
             case '20':
-                return gBooks.filter(book => book.listPrice.amount);
+                return gBooks.filter(book => book.listPrice.amount < 20);
             case '50':
                 return gBooks.filter(book => book.listPrice.amount < 50 && book.listPrice.amount > 20);
             case '100':
