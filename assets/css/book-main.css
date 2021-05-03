@@ -49,7 +49,7 @@
 }
 
 .details {
-    width: 90%;
+    /* width: 90%; */
     height: 400px;
     text-align: center;
     display: flex;
@@ -81,9 +81,6 @@
     img:hover {
         filter: blur(0);
         opacity: 1;
-    }
-    .details {
-        width: 500px;
     }
     .details a {
         margin-bottom: 0;

@@ -37,9 +37,12 @@ export class BookDetails extends React.Component {
                     <p>{this.getPublishDate()}</p>
                     <p>{this.getPageCount()}</p>
                     <p>Author: {book.authors}</p>
-                    <p>{book.description}</p>
                     <h3>${book.listPrice.amount}</h3>
                     <Link to="/books">Back</Link>
+                </div>
+                <div className="description">
+                    <h3>description:</h3>
+                    <p>{book.description}</p>
                 </div>
             </div>
 
