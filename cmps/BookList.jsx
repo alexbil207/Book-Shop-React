@@ -1,9 +1,9 @@
-import { BookReview } from './BookReview.jsx'
+import { BookPreview } from './BookPreview.jsx'
 
 export function BookList({ books }) {
     return (
         <div className="book-grid">
-            {books.map(book => { return <BookReview book={book} key={book.id} /> })}
+            {books.map(book => { return <BookPreview book={book} key={book.id} /> })}
         </div>
     )
 }

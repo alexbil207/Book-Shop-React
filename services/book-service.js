@@ -1,10 +1,11 @@
 'use strict';
 import { storageService } from './storage-service.js';
+import { utilService } from './util-service.js';
 
 export const bookService = {
     query,
-    removeBook,
     getBookById,
+    createReview
 }
 const KEY = 'books';
 var gBooks = [];
@@ -22,10 +23,14 @@ function query(filterBy) {
             books = getfilterBy(filterBy)
             return books;
         });
+    } else if (gBooks.length) {
+        console.log(gBooks)
+        return Promise.resolve(gBooks);
     }
     return Promise.resolve(_loadBooks());
-
 }
+
+
 
 function getfilterBy(filterBy) {
     if (filterBy.price) {
@@ -59,13 +64,25 @@ function getBookById(bookId) {
     );
 }
 
-function removeBook(bookId) {
-    var books = storageService.loadFromStorage(KEY);
-    var bookIdx = books.findIndex((book) => { return bookId === book.id })
-    books.splice(bookIdx, 1)
-    storageService.saveToStorage(KEY, books);
-}
 
 function _saveBooksToStorage() {
     storageService.saveToStorage(KEY, gBooks);
+}
+
+function createReview(review, id) {
+    let bookIdx = gBooks.findIndex(book => book.id === id)
+    if (!gBooks[bookIdx]['reviews']) gBooks[bookIdx]['reviews'] = [];
+    gBooks[bookIdx]['reviews'].push(_createReview(review))
+    _saveBooksToStorage();
+}
+
+function _createReview(review) {
+    const { fullName, text } = review;
+    let date = `${new Date().toLocaleString()}`
+    return {
+        id: utilService.makeId(),
+        fullName,
+        date,
+        text,
+    }
 }

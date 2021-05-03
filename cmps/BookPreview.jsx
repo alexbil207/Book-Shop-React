@@ -1,6 +1,6 @@
 const { Link } = ReactRouterDOM;
 
-export function BookReview({ book }) {
+export function BookPreview({ book }) {
     return (
         <Link to={`/books/${book.id}`}>
             <div className="book-card" key={book.id} >

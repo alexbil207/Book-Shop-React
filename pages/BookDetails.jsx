@@ -1,5 +1,7 @@
 const { Link } = ReactRouterDOM;
 import { bookService } from "../services/book-service.js";
+import { TextLength } from "../cmps/TextLength.jsx";
+import { BookReviews } from "../cmps/BookReviews.jsx";
 
 
 export class BookDetails extends React.Component {
@@ -28,7 +30,7 @@ export class BookDetails extends React.Component {
     render() {
         const { book } = this.state
         if (!book) return <h1>Loading</h1>
-        return (
+        return (<React.Fragment>
             <div className="book-detail">
                 <img src={book.thumbnail} />
                 <div className="details">
@@ -38,13 +40,14 @@ export class BookDetails extends React.Component {
                     <p>{this.getPageCount()}</p>
                     <p>Author: {book.authors}</p>
                     <h3>${book.listPrice.amount}</h3>
-                    <Link to="/books">Back</Link>
-                </div>
-                <div className="description">
-                    <h3>description:</h3>
-                    <p>{book.description}</p>
                 </div>
             </div>
+            {<TextLength text={book.description} />}
+            <div className="book-review">
+                <BookReviews book={book} />
+                <Link to="/books">Back</Link>
+            </div>
+        </React.Fragment>
 
         )
     }
